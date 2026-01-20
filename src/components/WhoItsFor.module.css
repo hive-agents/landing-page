@@ -1,0 +1,38 @@
+.headline {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.personas {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.persona {
+  text-align: center;
+}
+
+.iconWrapper {
+  margin-bottom: var(--spacing-md);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-hexagon-fill);
+  border-radius: 50%;
+  color: var(--color-primary);
+}
+
+.personaTitle {
+  margin-bottom: var(--spacing-sm);
+}
+
+.personaDescription {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  margin: 0;
+  line-height: 1.6;
+}

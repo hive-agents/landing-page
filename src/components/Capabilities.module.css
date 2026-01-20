@@ -1,0 +1,50 @@
+.header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-2xl);
+}
+
+.headline {
+  margin-bottom: var(--spacing-md);
+}
+
+.subheadline {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.features {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature {
+  text-align: center;
+}
+
+.iconWrapper {
+  margin-bottom: var(--spacing-md);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-hexagon-fill);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+}
+
+.featureTitle {
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.125rem;
+}
+
+.featureDescription {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  margin: 0;
+}
