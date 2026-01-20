@@ -23,42 +23,96 @@ export function Hero() {
 }
 
 function HexagonDiagram() {
+  // Central hexagon vertices (pointy-top orientation)
+  // Center at (200, 172), with vertices at angles 30, 90, 150, 210, 270, 330 degrees
+  // For a pointy-top hex: top vertex is at 270deg (straight up)
+  const centerX = 200;
+  const centerY = 172;
+  const centerRadius = 92; // Distance from center to vertex
+
+  // Small hexagon radius
+  const smallRadius = 24;
+
+  // Distance from center to small hexagon centers
+  const outerDistance = 140;
+
+  // Calculate positions for 6 outer hexagons
+  // They are positioned at 30, 90, 150, 210, 270, 330 degrees (matching center hex vertices)
+  const positions = [
+    { angle: 270, label: 'top' },       // Top
+    { angle: 330, label: 'topRight' },  // Top-right
+    { angle: 30, label: 'bottomRight' }, // Bottom-right
+    { angle: 90, label: 'bottom' },     // Bottom
+    { angle: 150, label: 'bottomLeft' }, // Bottom-left
+    { angle: 210, label: 'topLeft' },   // Top-left
+  ];
+
+  // Helper to convert angle to radians
+  const toRad = (deg: number) => (deg * Math.PI) / 180;
+
+  // Calculate hex vertex position from center
+  const hexVertex = (cx: number, cy: number, radius: number, angleDeg: number) => ({
+    x: cx + radius * Math.cos(toRad(angleDeg)),
+    y: cy + radius * Math.sin(toRad(angleDeg)),
+  });
+
+  // Generate pointy-top hexagon path
+  const hexPath = (cx: number, cy: number, r: number) => {
+    const points = [270, 330, 30, 90, 150, 210].map(angle => hexVertex(cx, cy, r, angle));
+    return `M${points[0].x} ${points[0].y}` + points.slice(1).map(p => `L${p.x} ${p.y}`).join('') + 'Z';
+  };
+
   return (
     <svg
-      viewBox="0 0 400 400"
+      viewBox="0 0 400 344"
       className={styles.diagram}
       aria-hidden="true"
     >
+      {/* Connecting lines from center hex vertices to outer hex facing vertices */}
+      <g stroke="var(--color-hexagon-stroke)" strokeWidth="2" strokeDasharray="4 4">
+        {positions.map(({ angle }, i) => {
+          // Start point: vertex of center hexagon
+          const start = hexVertex(centerX, centerY, centerRadius, angle);
+
+          // End point: center of small hexagon
+          const smallCenterX = centerX + outerDistance * Math.cos(toRad(angle));
+          const smallCenterY = centerY + outerDistance * Math.sin(toRad(angle));
+
+          // The facing vertex of the small hex is 180 degrees opposite of its position angle
+          const facingAngle = (angle + 180) % 360;
+          const end = hexVertex(smallCenterX, smallCenterY, smallRadius, facingAngle);
+
+          return (
+            <line
+              key={i}
+              x1={start.x}
+              y1={start.y}
+              x2={end.x}
+              y2={end.y}
+            />
+          );
+        })}
+      </g>
+
       {/* Central hexagon */}
       <path
-        d="M200 80L280 126V218L200 264L120 218V126L200 80Z"
+        d={hexPath(centerX, centerY, centerRadius)}
         fill="var(--color-hexagon-fill)"
         stroke="var(--color-primary)"
         strokeWidth="2"
       />
 
-      {/* Connecting lines with dots */}
-      <g stroke="var(--color-hexagon-stroke)" strokeWidth="2" strokeDasharray="4 4">
-        <line x1="200" y1="80" x2="200" y2="20" />
-        <line x1="280" y1="126" x2="340" y2="90" />
-        <line x1="280" y1="218" x2="340" y2="254" />
-        <line x1="200" y1="264" x2="200" y2="324" />
-        <line x1="120" y1="218" x2="60" y2="254" />
-        <line x1="120" y1="126" x2="60" y2="90" />
-      </g>
-
-      {/* Outer hexagons (smaller) */}
+      {/* Outer hexagons */}
       <g fill="var(--color-hexagon-fill)" stroke="var(--color-hexagon-stroke)" strokeWidth="1.5">
-        <path d="M200 20L220 32V56L200 68L180 56V32L200 20Z" />
-        <path d="M340 90L360 102V126L340 138L320 126V102L340 90Z" />
-        <path d="M340 254L360 266V290L340 302L320 290V266L340 254Z" />
-        <path d="M200 324L220 336V360L200 372L180 360V336L200 324Z" />
-        <path d="M60 254L80 266V290L60 302L40 290V266L60 254Z" />
-        <path d="M60 90L80 102V126L60 138L40 126V102L60 90Z" />
+        {positions.map(({ angle }, i) => {
+          const cx = centerX + outerDistance * Math.cos(toRad(angle));
+          const cy = centerY + outerDistance * Math.sin(toRad(angle));
+          return <path key={i} d={hexPath(cx, cy, smallRadius)} />;
+        })}
       </g>
 
-      {/* Center icon (simplified bee/hive) */}
-      <g transform="translate(200, 172)">
+      {/* Center icon (simplified hive symbol) */}
+      <g transform={`translate(${centerX}, ${centerY})`}>
         <circle cx="0" cy="0" r="20" fill="var(--color-primary)" />
         <path
           d="M-8 -4L0 -12L8 -4M-8 4L0 12L8 4"

@@ -9,66 +9,18 @@
   overflow: hidden;
 }
 
-.paths {
+.svg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.5;
 }
 
-.path {
-  opacity: 0.6;
-}
-
-.bee {
-  position: absolute;
-  will-change: offset-distance;
-}
-
-.bee1 {
-  offset-path: path("M-50,150 Q300,50 600,150 T1250,100");
-  animation: fly1 25s linear infinite;
-}
-
-.bee2 {
-  offset-path: path("M-50,300 Q200,200 500,350 Q800,500 1250,300");
-  animation: fly2 30s linear infinite;
-  animation-delay: -10s;
-}
-
+.bee1,
+.bee2,
 .bee3 {
-  offset-path: path("M-50,500 Q400,400 700,500 T1250,450");
-  animation: fly3 22s linear infinite;
-  animation-delay: -5s;
-}
-
-@keyframes fly1 {
-  0% {
-    offset-distance: 0%;
-  }
-  100% {
-    offset-distance: 100%;
-  }
-}
-
-@keyframes fly2 {
-  0% {
-    offset-distance: 0%;
-  }
-  100% {
-    offset-distance: 100%;
-  }
-}
-
-@keyframes fly3 {
-  0% {
-    offset-distance: 0%;
-  }
-  100% {
-    offset-distance: 100%;
-  }
+  opacity: 1;
 }
 
 /* Reduced motion preference */
@@ -76,8 +28,7 @@
   .bee1,
   .bee2,
   .bee3 {
-    animation: none;
-    offset-distance: 50%;
+    display: none;
   }
 }
 
