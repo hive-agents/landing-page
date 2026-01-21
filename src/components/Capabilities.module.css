@@ -19,6 +19,19 @@
   margin: 0 auto;
 }
 
+@media (min-width: 1024px) {
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+  }
+
+  .feature {
+    flex: 0 0 calc(33.333% - var(--spacing-lg));
+  }
+}
+
 .feature {
   text-align: center;
 }

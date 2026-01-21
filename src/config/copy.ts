@@ -78,7 +78,7 @@ export const copyVariants: Record<string, CopyVariant> = {
         subtitle: "We handle everything",
         features: [
           "One-click setup",
-          "Automatic updates & security",
+          "Automatic infrastructure updates",
           "24/7 monitoring",
           "Pay-as-you-go pricing"
         ]
@@ -115,8 +115,7 @@ export const copyVariants: Record<string, CopyVariant> = {
         { title: "Deploy webapps", description: "Agents can create and deploy web applications that persist and scale" },
         { title: "Persistent storage", description: "Files, databases, and state that survive restarts and session changes" },
         { title: "Network access", description: "Your agents can reach external APIs and services when needed" },
-        { title: "MCP integration", description: "Connect to any MCP-compatible tool for expanded capabilities" },
-        { title: "Secure by default", description: "Sandboxed execution with proper isolation between workloads" }
+        { title: "MCP integration", description: "Connect to any MCP-compatible tool for expanded capabilities" }
       ]
     },
     whoItsFor: {
@@ -133,7 +132,6 @@ export const copyVariants: Record<string, CopyVariant> = {
         { question: "What agents work with hive?", answer: "Any MCP-compatible agent including Claude Code, Cursor, Windsurf, and others. If it speaks MCP, it works with hive." },
         { question: "Is hive-core really free?", answer: "Yes. Hive-core is open source and free forever. You pay only for the infrastructure you run it on." },
         { question: "How is this different from just using a VPS?", answer: "Hive handles the boring parts—persistent processes, file management, webapp deployment, MCP integration—so you can focus on your agents, not your infrastructure." },
-        { question: "What about security?", answer: "All workloads run in isolated containers. The managed service includes automatic security updates and monitoring. Self-hosted gives you full control over your security posture." },
         { question: "Can I migrate between managed and self-hosted?", answer: "Yes. Your agent configurations and data are portable. Move between managed and self-hosted whenever you want." }
       ]
     },
@@ -171,7 +169,7 @@ export const copyVariants: Record<string, CopyVariant> = {
         features: [
           "Deploy in seconds",
           "Auto-scaling resources",
-          "Enterprise security",
+          "Always-on reliability",
           "Simple pricing"
         ]
       },
@@ -206,9 +204,8 @@ export const copyVariants: Record<string, CopyVariant> = {
         { title: "Polyglot runtime", description: "Support for every major language and framework out of the box" },
         { title: "App deployment", description: "Full webapp hosting with automatic SSL and routing" },
         { title: "Durable storage", description: "Data that persists, syncs, and scales with your needs" },
-        { title: "External connectivity", description: "Secure access to the broader internet and APIs" },
-        { title: "Tool ecosystem", description: "Rich MCP marketplace for extended functionality" },
-        { title: "Isolation first", description: "Strong security boundaries between all workloads" }
+        { title: "External connectivity", description: "Access to the broader internet and APIs" },
+        { title: "Tool ecosystem", description: "Rich MCP marketplace for extended functionality" }
       ]
     },
     whoItsFor: {
@@ -225,7 +222,6 @@ export const copyVariants: Record<string, CopyVariant> = {
         { question: "Which AI agents are supported?", answer: "All MCP-compatible agents work seamlessly. This includes Claude Code, Cursor, Windsurf, and the growing MCP ecosystem." },
         { question: "What's the catch with hive-core?", answer: "No catch. It's MIT licensed, fully open source, and free to use forever. The managed service is how we sustain development." },
         { question: "Why not just use AWS/GCP/Azure?", answer: "You could. But you'd spend weeks on setup that hive handles in minutes. We're purpose-built for AI agents." },
-        { question: "How do you handle data security?", answer: "Container isolation, encrypted storage, and regular security audits. Self-hosted users have complete control over their security configuration." },
         { question: "Can I start managed and move to self-hosted?", answer: "Absolutely. Full data portability is a core design principle." }
       ]
     },
