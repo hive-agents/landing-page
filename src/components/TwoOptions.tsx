@@ -1,8 +1,28 @@
-import { useCopy } from '../hooks/useCopy';
+import { useCopy, useIsMinimalVariant } from '../hooks/useCopy';
 import styles from './TwoOptions.module.css';
 
 export function TwoOptions() {
   const copy = useCopy();
+  const isMinimal = useIsMinimalVariant();
+
+  if (isMinimal) {
+    return (
+      <section className={styles.minimalSection}>
+        <div className="container">
+          <div className={styles.minimalGrid}>
+            <div className={styles.minimalCard}>
+              <h3 className={styles.minimalTitle}>{copy.twoOptions.managed.title}</h3>
+              <p className={styles.minimalSubtitle}>{copy.twoOptions.managed.subtitle}</p>
+            </div>
+            <div className={styles.minimalCard}>
+              <h3 className={styles.minimalTitle}>{copy.twoOptions.selfHosted.title}</h3>
+              <p className={styles.minimalSubtitle}>{copy.twoOptions.selfHosted.subtitle}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className={`section section-alt`}>
