@@ -1,10 +1,11 @@
+import beeImage from '../assets/bee2.png';
 import styles from './BeeAnimation.module.css';
 
 export function BeeAnimation() {
-  // Define paths that bees will follow
-  const path1 = "M-50,100 Q300,30 600,120 Q900,210 1250,80";
-  const path2 = "M-50,250 Q200,180 450,300 Q700,420 950,280 Q1100,200 1250,260";
-  const path3 = "M-50,400 Q250,320 500,420 Q750,520 1000,380 Q1150,300 1250,380";
+  // More curvy, looping paths
+  const path1 = "M-50,80 C100,20 150,180 300,100 C450,20 400,200 550,120 C700,40 750,180 900,80 C1050,-20 1100,160 1250,100";
+  const path2 = "M-50,280 C50,180 150,350 300,280 C450,210 400,400 550,320 C700,240 800,380 950,300 C1100,220 1150,350 1250,280";
+  const path3 = "M-50,420 C100,350 200,480 350,400 C500,320 550,500 700,420 C850,340 900,480 1050,400 C1200,320 1180,460 1250,420";
 
   return (
     <div className={styles.container} aria-hidden="true">
@@ -19,63 +20,25 @@ export function BeeAnimation() {
           fill="none"
           stroke="var(--color-hexagon-stroke)"
           strokeWidth="2"
-          strokeDasharray="8 8"
-          opacity="0.4"
+          strokeDasharray="6 6"
+          opacity="0.3"
         />
         <path
           d={path2}
           fill="none"
           stroke="var(--color-hexagon-stroke)"
           strokeWidth="2"
-          strokeDasharray="8 8"
-          opacity="0.4"
+          strokeDasharray="6 6"
+          opacity="0.3"
         />
         <path
           d={path3}
           fill="none"
           stroke="var(--color-hexagon-stroke)"
           strokeWidth="2"
-          strokeDasharray="8 8"
-          opacity="0.4"
+          strokeDasharray="6 6"
+          opacity="0.3"
         />
-
-        {/* Bee 1 following path 1 */}
-        <g className={styles.bee1}>
-          <animateMotion
-            dur="20s"
-            repeatCount="indefinite"
-            rotate="auto"
-          >
-            <mpath href="#beePath1" />
-          </animateMotion>
-          <BeeGraphic />
-        </g>
-
-        {/* Bee 2 following path 2 */}
-        <g className={styles.bee2}>
-          <animateMotion
-            dur="25s"
-            repeatCount="indefinite"
-            rotate="auto"
-            begin="-8s"
-          >
-            <mpath href="#beePath2" />
-          </animateMotion>
-          <BeeGraphic />
-        </g>
-
-        {/* Bee 3 following path 3 */}
-        <g className={styles.bee3}>
-          <animateMotion
-            dur="22s"
-            repeatCount="indefinite"
-            rotate="auto"
-            begin="-15s"
-          >
-            <mpath href="#beePath3" />
-          </animateMotion>
-          <BeeGraphic />
-        </g>
 
         {/* Hidden paths for animateMotion to reference */}
         <defs>
@@ -84,26 +47,84 @@ export function BeeAnimation() {
           <path id="beePath3" d={path3} />
         </defs>
       </svg>
-    </div>
-  );
-}
 
-function BeeGraphic() {
-  // Bee is drawn pointing right (head on right, tail on left)
-  // rotate="auto" aligns the positive x-axis with the path direction
-  return (
-    <g transform="translate(0, 0)">
-      {/* Body - horizontal, tail on left */}
-      <ellipse cx="-4" cy="0" rx="6" ry="5" fill="var(--color-primary)" />
-      {/* Stripes */}
-      <path d="M-8 -3v6M-5 -4v8M-2 -3v6" stroke="var(--color-accent)" strokeWidth="1.5" />
-      {/* Head - on right */}
-      <circle cx="5" cy="0" r="4" fill="var(--color-primary)" />
-      {/* Wings - on top and bottom */}
-      <ellipse cx="-2" cy="-6" rx="4" ry="2.5" fill="var(--color-card-bg)" opacity="0.8" />
-      <ellipse cx="-2" cy="6" rx="4" ry="2.5" fill="var(--color-card-bg)" opacity="0.8" />
-      {/* Antennae - pointing forward-right */}
-      <path d="M8 -2L11 -5M8 2L11 5" stroke="var(--color-accent)" strokeWidth="1" strokeLinecap="round" />
-    </g>
+      {/* Bee images animated along paths */}
+      <svg
+        className={styles.svg}
+        viewBox="0 0 1200 500"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        {/* Bee 1 */}
+        <g className={styles.bee1}>
+          <animateMotion
+            dur="16s"
+            repeatCount="indefinite"
+            rotate="auto"
+            calcMode="spline"
+            keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"
+            keyTimes="0; 0.25; 0.5; 0.75; 1"
+          >
+            <mpath href="#beePath1" />
+          </animateMotion>
+          <g transform="rotate(90)">
+            <image
+              href={beeImage}
+              x="-18"
+              y="-18"
+              width="36"
+              height="36"
+            />
+          </g>
+        </g>
+
+        {/* Bee 2 */}
+        <g className={styles.bee2}>
+          <animateMotion
+            dur="20s"
+            repeatCount="indefinite"
+            rotate="auto"
+            begin="-6s"
+            calcMode="spline"
+            keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"
+            keyTimes="0; 0.25; 0.5; 0.75; 1"
+          >
+            <mpath href="#beePath2" />
+          </animateMotion>
+          <g transform="rotate(90)">
+            <image
+              href={beeImage}
+              x="-16"
+              y="-16"
+              width="32"
+              height="32"
+            />
+          </g>
+        </g>
+
+        {/* Bee 3 */}
+        <g className={styles.bee3}>
+          <animateMotion
+            dur="18s"
+            repeatCount="indefinite"
+            rotate="auto"
+            begin="-12s"
+            calcMode="spline"
+            keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"
+            keyTimes="0; 0.25; 0.5; 0.75; 1"
+          >
+            <mpath href="#beePath3" />
+          </animateMotion>
+          <g transform="rotate(90)">
+            <image
+              href={beeImage}
+              x="-14"
+              y="-14"
+              width="28"
+              height="28"
+            />
+          </g>
+        </g>
+      </svg>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+import logoSvg from '../assets/logo.svg';
 import styles from './Footer.module.css';
 
 export function Footer() {
@@ -8,21 +9,7 @@ export function Footer() {
       <div className={`container ${styles.container}`}>
         <div className={styles.brand}>
           <a href="/" className={styles.logo}>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 32 32"
-              fill="none"
-            >
-              <path
-                d="M16 2L28 9V23L16 30L4 23V9L16 2Z"
-                fill="var(--color-primary)"
-              />
-              <path
-                d="M16 8L22 11.5V18.5L16 22L10 18.5V11.5L16 8Z"
-                fill="var(--color-background)"
-              />
-            </svg>
+            <img src={logoSvg} alt="" width="24" height="24" />
             <span>hive</span>
           </a>
           <p className={styles.tagline}>
