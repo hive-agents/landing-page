@@ -1,0 +1,29 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FDF6E3"/>
+
+  <!-- Subtle hexagon pattern background -->
+  <g opacity="0.08">
+    <path d="M100 100L140 123V169L100 192L60 169V123L100 100Z" fill="#F5A623"/>
+    <path d="M200 50L240 73V119L200 142L160 119V73L200 50Z" fill="#F5A623"/>
+    <path d="M1100 500L1140 523V569L1100 592L1060 569V523L1100 500Z" fill="#F5A623"/>
+    <path d="M1000 550L1040 573V619L1000 642L960 619V573L1000 550Z" fill="#F5A623"/>
+    <path d="M150 450L190 473V519L150 542L110 519V473L150 450Z" fill="#F5A623"/>
+    <path d="M1050 100L1090 123V169L1050 192L1010 169V123L1050 100Z" fill="#F5A623"/>
+  </g>
+
+  <!-- Logo hexagon -->
+  <g transform="translate(540, 180)">
+    <path d="M60 0L120 34.6V103.9L60 138.6L0 103.9V34.6L60 0Z" fill="#F5A623"/>
+    <path d="M60 23L97.5 45.6V90.9L60 113.6L22.5 90.9V45.6L60 23Z" fill="#FDF6E3"/>
+  </g>
+
+  <!-- "hive" text -->
+  <text x="600" y="380" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="72" font-weight="700" fill="#2D2006" text-anchor="middle">hive</text>
+
+  <!-- Tagline -->
+  <text x="600" y="450" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="32" fill="#5A4A2A" text-anchor="middle">A home for your AI agents</text>
+
+  <!-- Subline -->
+  <text x="600" y="510" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" fill="#5A4A2A" text-anchor="middle" opacity="0.8">No setup required. Ready in minutes.</text>
+</svg>

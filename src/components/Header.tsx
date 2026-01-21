@@ -1,6 +1,6 @@
 import { ThemeToggle } from './ThemeToggle';
 import { useCopy } from '../hooks/useCopy';
-import logoSvg from '../assets/logo.svg';
+import logoPng from '../assets/logo.png';
 import styles from './Header.module.css';
 
 interface HeaderProps {
@@ -15,7 +15,7 @@ export function Header({ theme, onThemeToggle }: HeaderProps) {
     <header className={styles.header}>
       <div className={`container ${styles.container}`}>
         <a href="/" className={styles.logo}>
-          <img src={logoSvg} alt="" width="32" height="32" className={styles.logoIcon} />
+          <img src={logoPng} alt="" width="32" height="32" className={styles.logoIcon} />
           <span className={styles.logoText}>hive</span>
         </a>
 

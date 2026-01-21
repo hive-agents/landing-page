@@ -1,4 +1,4 @@
-import logoSvg from '../assets/logo.svg';
+import logoPng from '../assets/logo.png';
 import styles from './Footer.module.css';
 
 export function Footer() {
@@ -9,7 +9,7 @@ export function Footer() {
       <div className={`container ${styles.container}`}>
         <div className={styles.brand}>
           <a href="/" className={styles.logo}>
-            <img src={logoSvg} alt="" width="24" height="24" />
+            <img src={logoPng} alt="" width="24" height="24" />
             <span>hive</span>
           </a>
           <p className={styles.tagline}>

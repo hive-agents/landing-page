@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer hexagon -->
+  <path
+    d="M16 2L28 9V23L16 30L4 23V9L16 2Z"
+    fill="#F5A623"
+  />
+  <!-- Inner hexagon (scaled uniformly from center) -->
+  <path
+    d="M16 7L24 11.5V20.5L16 25L8 20.5V11.5L16 7Z"
+    fill="white"
+  />
+</svg>
