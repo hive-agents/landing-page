@@ -1,4 +1,5 @@
 import { useTheme } from './hooks/useTheme';
+import { useIsMinimalVariant } from './hooks/useCopy';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { BeeAnimation } from './components/BeeAnimation';
@@ -14,6 +15,7 @@ import { Footer } from './components/Footer';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
+  const isMinimal = useIsMinimalVariant();
 
   return (
     <>
@@ -21,14 +23,14 @@ function App() {
       <Header theme={theme} onThemeToggle={toggleTheme} />
       <main>
         <Hero />
-        <Problem />
-        <Solution />
+        {!isMinimal && <Problem />}
+        {!isMinimal && <Solution />}
         <TwoOptions />
-        <HowItWorks />
-        <Capabilities />
-        <WhoItsFor />
-        <FAQ />
-        <FinalCTA />
+        {!isMinimal && <HowItWorks />}
+        {!isMinimal && <Capabilities />}
+        {!isMinimal && <WhoItsFor />}
+        {!isMinimal && <FAQ />}
+        {!isMinimal && <FinalCTA />}
       </main>
       <Footer />
     </>

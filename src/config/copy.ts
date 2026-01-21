@@ -54,7 +54,7 @@ export const copyVariants: Record<string, CopyVariant> = {
   v2: {
     hero: {
       headline: "Get your own AI agent. No setup required.",
-      subheadline: "A personal server for your AI agents—ready to use in minutes. Run persistent processes, share files across sessions, and deploy webapps without the infrastructure headaches.",
+      subheadline: "A personal server for your AI agents, ready to use in minutes. Run persistent processes, share files across sessions, and deploy webapps without the infrastructure headaches.",
       cta: "Join the waitlist"
     },
     problem: {
@@ -230,7 +230,59 @@ export const copyVariants: Record<string, CopyVariant> = {
       subheadline: "Be among the first to experience hive.",
       cta: "Join the colony"
     }
+  },
+  v4: {
+    hero: {
+      headline: "Your AI agent needs a home.",
+      subheadline: "A place to run, persist, and build, without starting over every session.",
+      cta: "Join the waitlist"
+    },
+    problem: {
+      headline: "",
+      body: ""
+    },
+    solution: {
+      headline: "",
+      features: []
+    },
+    twoOptions: {
+      headline: "",
+      managed: {
+        title: "Managed",
+        subtitle: "We handle infrastructure. One-click setup.",
+        features: []
+      },
+      selfHosted: {
+        title: "Self-hosted",
+        subtitle: "Open source. Run anywhere. Free forever.",
+        features: []
+      }
+    },
+    howItWorks: {
+      headline: "",
+      managed: [],
+      selfHosted: []
+    },
+    capabilities: {
+      headline: "",
+      subheadline: "",
+      features: []
+    },
+    whoItsFor: {
+      headline: "",
+      personas: []
+    },
+    faq: {
+      headline: "",
+      items: []
+    },
+    finalCta: {
+      headline: "",
+      subheadline: "",
+      cta: ""
+    }
   }
 };
 
 export const defaultVariant = 'v2';
+export const minimalVariants = ['v4'];
